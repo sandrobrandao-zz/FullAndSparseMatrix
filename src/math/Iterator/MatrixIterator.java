@@ -1,4 +1,6 @@
-package math;
+package math.Iterator;
+
+import math.Matrix;
 
 import java.util.Iterator;
 

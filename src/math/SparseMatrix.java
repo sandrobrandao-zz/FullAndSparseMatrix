@@ -1,6 +1,7 @@
 package math;
 
 import math.Exception.DimensionsDoNotAgreeException;
+import math.Iterator.MatrixIterator;
 
 public class SparseMatrix
   implements Matrix

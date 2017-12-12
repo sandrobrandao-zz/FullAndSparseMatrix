@@ -1,11 +1,24 @@
 package math;
 
 import math.Exception.DimensionsDoNotAgreeException;
+import math.Iterator.MatrixIterator;
 
 public abstract class AbstractMatrix implements Matrix {
+    private Size size;
+
     @Override
     public Matrix add(double s) {
-        return null;
+        Matrix matrix = new FullMatrix();
+        int m = this.size().m;
+        int n = this.size().n;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix.set(i, j, this.get(i, j) + s);
+            }
+        }
+
+        return matrix;
     }
 
     @Override
@@ -13,7 +26,20 @@ public abstract class AbstractMatrix implements Matrix {
 
     @Override
     public Matrix sub(double s) {
-        return null;
+        Matrix matrix = new FullMatrix();
+        int m = this.size().m;
+        int n = this.size().n;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                double val;
+                val = this.get(i, j);
+                val -= s;
+                matrix.set(i, j, val);
+            }
+        }
+
+        return matrix;
     }
 
     @Override
@@ -23,7 +49,20 @@ public abstract class AbstractMatrix implements Matrix {
 
     @Override
     public Matrix mul(double s) {
-        return null;
+      Matrix matrix = new FullMatrix();
+      int m = this.size().m;
+      int n = this.size().n;
+
+      for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+          double val;
+          val = this.get(i, j);
+          val *= s;
+          matrix.set(i, j, val);
+        }
+      }
+
+      return matrix;
     }
 
     @Override
@@ -36,17 +75,17 @@ public abstract class AbstractMatrix implements Matrix {
 
     @Override
     public Size size() {
-        return null;
+        return this.size;
     }
 
     @Override
-    public double get(int i, int j) {
-        return 0;
-    }
+    public abstract double get(int i, int j);
 
     @Override
     public Vector getRow(int i) {
-        return null;
+        Vector vector = new Vector();
+
+        return vector;
     }
 
     @Override
